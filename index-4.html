@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080706">
+  <meta name="description" content="Jangan lupa pulang pada diri sendiri. Jadilah cahaya bagi sesama, tetapi jangan lupa menjaga cahaya dalam dirimu sendiri.">
+
+  <title>Jangan Lupa Pulang pada Diri Sendiri</title>
+
+  <!-- Social preview: relatif agar langsung bisa di-upload.
+       Setelah GitHub Pages aktif, jika ingin preview paling konsisten,
+       isi absolute URL pada og:url dan og:image sesuai URL Pages Anda. -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Jangan Lupa Pulang pada Diri Sendiri">
+  <meta property="og:description" content="Jadilah cahaya bagi sesama, tetapi jangan lupa menjaga cahaya dalam dirimu sendiri.">
+  <meta property="og:image" content="cahaya.jpg">
+  <meta property="og:image:alt" content="Cahaya api unggun di malam hari">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jangan Lupa Pulang pada Diri Sendiri">
+  <meta name="twitter:description" content="Jadilah cahaya bagi sesama, tetapi jangan lupa menjaga cahaya dalam dirimu sendiri.">
+  <meta name="twitter:image" content="cahaya.jpg">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Cahaya Diri">✦ Cahaya Diri</a>
+    <a class="navlink" href="#renungan">Renungan</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media">
+        <img src="cahaya.jpg" alt="Api unggun di malam hari" class="hero-image">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="kicker">SEBUAH RENUNGAN</p>
+          <h1>Jangan lupa<br>pulang pada diri sendiri.</h1>
+          <span class="accent-line"></span>
+          <p class="author">~ Dm</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading" id="renungan">
+      <article class="prose">
+        <p class="lead">Ada kalanya kita terlalu sibuk menjadi cahaya bagi orang lain, sampai lupa bahwa diri sendiri juga membutuhkan cahaya agar tidak padam.</p>
+
+        <p>Kita berusaha menguatkan mereka yang sedang rapuh, menyemangati yang kehilangan harapan, dan selalu hadir saat orang lain membutuhkan. Namun di balik senyum yang kita tunjukkan, sering kali ada lelah yang disembunyikan, luka yang dipendam, dan beban yang dipikul sendirian.</p>
+
+        <p>Menjadi tempat bersandar bagi banyak orang memang sebuah kehormatan. Tetapi jangan sampai karena terlalu sering menguatkan orang lain, kita lupa merawat hati sendiri. Sebab, cahaya yang terus dipaksa menyala tanpa pernah diisi kembali, pada akhirnya akan redup dan padam.</p>
+
+        <div class="quote">
+          <span class="quote-mark">“</span>
+          <p>Tidak ada yang salah jika sesekali berhenti untuk memulihkan diri.</p>
+        </div>
+
+        <p>Tidak ada yang salah jika kita juga membutuhkan uluran tangan, perhatian, dan doa dari orang lain. Karena pada akhirnya, kita semua hanyalah manusia yang sama-sama sedang berjuang menghadapi kehidupan.</p>
+
+        <div class="highlight">
+          <p>Jadilah cahaya bagi sesama, tetapi jangan lupa menjaga cahaya dalam dirimu sendiri.</p>
+          <p>Sebab, hanya cahaya yang tetap menyala yang mampu menerangi jalan bagi orang lain.</p>
+        </div>
+
+        <div class="ending">
+          <span></span>
+          <p>Jangan lupa pulang pada diri sendiri.</p>
+          <small>~ Dm</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="share">
+      <h2>Bagikan renungan ini</h2>
+      <p>Jika tulisan ini berarti untukmu, bagikan kepada seseorang yang mungkin sedang membutuhkannya.</p>
+      <div class="buttons">
+        <button id="shareButton" type="button">↗ Bagikan</button>
+        <button id="copyButton" type="button">⧉ Salin Link</button>
+      </div>
+      <p id="shareStatus" class="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>✦ Cahaya Diri</strong>
+    <span>Jadilah cahaya, tanpa lupa menjaga dirimu sendiri.</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script>
+    const title = "Jangan Lupa Pulang pada Diri Sendiri";
+    const description = "Jadilah cahaya bagi sesama, tetapi jangan lupa menjaga cahaya dalam dirimu sendiri.";
+    const url = window.location.href;
+
+    const status = document.getElementById("shareStatus");
+
+    document.getElementById("shareButton").addEventListener("click", async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share({ title, text: description, url });
+        } else {
+          await navigator.clipboard.writeText(url);
+          status.textContent = "Link berhasil disalin. Silakan tempel ke WhatsApp atau Facebook.";
+        }
+      } catch (error) {
+        if (error && error.name !== "AbortError") {
+          status.textContent = "Gunakan tombol Salin Link untuk membagikan halaman ini.";
+        }
+      }
+    });
+
+    document.getElementById("copyButton").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        status.textContent = "Link berhasil disalin.";
+      } catch (error) {
+        status.textContent = url;
+      }
+    });
+  </script>
+</body>
+</html>
